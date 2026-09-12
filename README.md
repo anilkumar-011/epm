@@ -1,4 +1,3 @@
-
 # Epaphras Ministries Web
 
 Welcome to the EPM project! This is a web application built with Next.js and Tailwind CSS, designed to serve as a platform for Evangelical Project Management, including features like library, magazine, message, and more.
@@ -35,29 +34,29 @@ Welcome to the EPM project! This is a web application built with Next.js and Tai
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher recommended)
 - npm or yarn
 
 ### Installation
 
 1. **Clone the repository:**
-    ```bash
-    git clone <repo-url>
-    cd epm
-    ```
+   ```bash
+   git clone <repo-url>
+   cd epm
+   ```
 2. **Install dependencies:**
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 3. **Run the development server:**
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    ```
-
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
 ## Scripts
 

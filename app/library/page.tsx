@@ -622,6 +622,13 @@ const initialMagazines: Magazine[] = [
     download_url:
       "https://drive.google.com/file/d/1ypWiLqdQwmH8qpRko9ytNLF18iYder6E/view?usp=sharing",
   },
+  {
+    name: "Devuni Sparsha",
+    month: "Sep Oct 2026",
+    image: "/magazine/sep_oct_2026.jpg",
+    download_url:
+      "https://drive.google.com/file/d/1P2lGIB3Tx7QZYf_qp33a_aqSG1MsA0t9/view?usp=sharing",
+  },
 ];
 
 // Pre-compute unique years once
