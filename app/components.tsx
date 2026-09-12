@@ -2,8 +2,26 @@
 import Link from "next/link";
 import React, { useEffect, useState, useCallback, memo } from "react";
 
-import { motion, AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
-import { ChevronLeft, ChevronRight, Menu, X, Facebook, Youtube, Instagram, MapPin, Phone, Mail, Map } from "lucide-react";
+import {
+  motion,
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  m,
+} from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Menu,
+  X,
+  Facebook,
+  Youtube,
+  Instagram,
+  MapPin,
+  Phone,
+  Mail,
+  Map,
+} from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
 
 const navItems = [
@@ -33,13 +51,15 @@ export const Navbar: React.FC = memo(function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
+  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
   return (
     <nav
       className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[92%] sm:w-[95%] max-w-5xl z-50 transition-all duration-300 ease-out rounded-2xl md:rounded-full will-change-transform ${
-        scrolled ? "bg-white/95 glass shadow-premium py-2 md:py-2" : "bg-white/90 backdrop-blur-md py-3 md:py-4"
+        scrolled
+          ? "bg-white/95 glass shadow-premium py-2 md:py-2"
+          : "bg-white/90 backdrop-blur-md py-3 md:py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -129,7 +149,9 @@ export const Carousel = memo(function Carousel() {
   }, []);
 
   const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + carouselImages.length) % carouselImages.length,
+    );
   }, []);
 
   const goToSlide = useCallback((index: number) => {
@@ -149,7 +171,7 @@ export const Carousel = memo(function Carousel() {
         {carouselImages.map((src, i) => (
           <link key={src} rel="preload" as="image" href={src} />
         ))}
-        
+
         <LazyMotion features={domAnimation}>
           <AnimatePresence mode="wait">
             <m.div
@@ -163,7 +185,7 @@ export const Carousel = memo(function Carousel() {
               {/* Gradients */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
               <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent z-10" />
-              
+
               <img
                 src={carouselImages[currentIndex]}
                 alt={`Epaphras Ministries - Slide ${currentIndex + 1}`}
@@ -175,12 +197,16 @@ export const Carousel = memo(function Carousel() {
 
         {/* Text Area - Bottom Aligned */}
         <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center justify-end text-center px-6 md:px-12 pb-14 md:pb-20">
-          <div className={`max-w-4xl transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div
+            className={`max-w-4xl transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
             <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-4 md:mb-6 leading-tight drop-shadow-2xl">
-              Welcome to <span className="text-secondary">Epaphras Ministries</span>
+              Welcome to{" "}
+              <span className="text-secondary">Epaphras Ministries</span>
             </h1>
             <p className="text-gray-100 text-base sm:text-xl md:text-2xl max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg">
-              Spreading the Love of Christ and Transforming Lives through Faith and Action.
+              Spreading the Love of Christ and Transforming Lives through Faith
+              and Action.
             </p>
           </div>
         </div>
@@ -211,8 +237,8 @@ export const Carousel = memo(function Carousel() {
                 onClick={() => goToSlide(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`transition-all duration-300 rounded-full ${
-                  i === currentIndex 
-                    ? "w-8 md:w-10 h-1.5 bg-secondary" 
+                  i === currentIndex
+                    ? "w-8 md:w-10 h-1.5 bg-secondary"
                     : "w-2 h-1.5 bg-white/40 hover:bg-white/60"
                 }`}
               />
@@ -232,25 +258,45 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/epaphrasministries/", label: "Facebook" },
-  { icon: Youtube, href: "https://www.youtube.com/channel/UCtBqdgXf6fmgAVYT1X-_aDA", label: "YouTube" },
-  { icon: Instagram, href: "https://www.instagram.com/devunisparsha/", label: "Instagram" },
-  { icon: BsWhatsapp, href: "https://whatsapp.com/channel/0029Va9abgn2phHNWwktr839", label: "WhatsApp" }
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/epaphrasministries/",
+    label: "Facebook",
+  },
+  {
+    icon: Youtube,
+    href: "https://www.youtube.com/channel/UCtBqdgXf6fmgAVYT1X-_aDA",
+    label: "YouTube",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/devunisparsha/",
+    label: "Instagram",
+  },
+  {
+    icon: BsWhatsapp,
+    href: "https://whatsapp.com/channel/0029Va9abgn2phHNWwktr839",
+    label: "WhatsApp",
+  },
 ];
 
 export const Footer: React.FC = memo(function Footer() {
   const [showMap, setShowMap] = useState(false);
-  const toggleMap = useCallback(() => setShowMap(prev => !prev), []);
+  const toggleMap = useCallback(() => setShowMap((prev) => !prev), []);
 
   return (
     <footer className="bg-[#0f0f1d] text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      
+
       <div className="container mx-auto py-16 md:py-24 px-6 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
           <div className="space-y-8 sm:col-span-2 lg:col-span-2">
             <div>
-              <Link href="/" className="flex items-center gap-3 mb-6" prefetch={true}>
+              <Link
+                href="/"
+                className="flex items-center gap-3 mb-6"
+                prefetch={true}
+              >
                 <img
                   src="/Logo.png"
                   alt="Epaphras Ministries Logo"
@@ -261,14 +307,16 @@ export const Footer: React.FC = memo(function Footer() {
                 </h3>
               </Link>
               <p className="text-gray-400 max-w-sm leading-relaxed text-base">
-                Dedicated to serving communities and sharing the transformative power of faith since 1998. Join us as we build a legacy of love and purpose.
+                Dedicated to serving communities and sharing the transformative
+                power of faith since 1998. Join us as we build a legacy of love
+                and purpose.
               </p>
             </div>
-            
+
             <div className="flex gap-4">
               {socialLinks.map((social, i) => (
-                <a 
-                  key={i} 
+                <a
+                  key={i}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -282,7 +330,9 @@ export const Footer: React.FC = memo(function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-8 text-white">Quick Navigation</h4>
+            <h4 className="text-lg font-bold mb-8 text-white">
+              Quick Navigation
+            </h4>
             <ul className="space-y-4">
               {footerLinks.map((link) => (
                 <li key={link.name}>
@@ -306,24 +356,38 @@ export const Footer: React.FC = memo(function Footer() {
                 <MapPin className="text-primary shrink-0 mt-1" size={20} />
                 <div className="space-y-3">
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    Plot number 1, Shanti Nagar, Bhagyalatha Colony, Hyderabad-500070
+                    Plot number 1, Shanti Nagar, Bhagyalatha Colony,
+                    Hyderabad-500070
                   </p>
-                  <button 
+                  <button
                     onClick={toggleMap}
                     className="flex items-center gap-2 text-secondary hover:text-white transition-colors text-xs font-bold group bg-white/5 py-1.5 px-3 rounded-lg border border-white/5 w-fit"
                   >
-                    <Map size={14} className="group-hover:scale-105 transition-transform" />
+                    <Map
+                      size={14}
+                      className="group-hover:scale-105 transition-transform"
+                    />
                     {showMap ? "Hide Map" : "View on Map"}
                   </button>
                 </div>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="text-primary shrink-0" size={20} />
-                <a href="tel:+919666666249" className="text-gray-400 text-sm hover:text-secondary transition-colors">96666 66249</a>
+                <a
+                  href="tel:+919666666249"
+                  className="text-gray-400 text-sm hover:text-secondary transition-colors"
+                >
+                  96666 66249
+                </a>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="text-primary shrink-0" size={20} />
-                <a href="mailto:mail2church@gmail.com" className="text-gray-400 text-sm truncate hover:text-secondary transition-colors">mail2church@gmail.com</a>
+                <a
+                  href="mailto:mail2church@gmail.com"
+                  className="text-gray-400 text-sm truncate hover:text-secondary transition-colors"
+                >
+                  mail2church@gmail.com
+                </a>
               </li>
             </ul>
           </div>
@@ -339,13 +403,13 @@ export const Footer: React.FC = memo(function Footer() {
                 transition={{ duration: 0.3 }}
                 className="mt-12 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative"
               >
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1910.965123064141!2d78.58926183249288!3d17.329661927186777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba119b342fb41%3A0x69d3bf88abc71ae7!2sEpaphras%20Ministries%20Trust%20Office!5e0!3m2!1sen!2sin!4v1768925067334!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={true} 
-                  loading="lazy" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1910.965123064141!2d78.58926183249288!3d17.329661927186777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba119b342fb41%3A0x69d3bf88abc71ae7!2sEpaphras%20Ministries%20Trust%20Office!5e0!3m2!1sen!2sin!4v1768925067334!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Epaphras Ministries Location"
                 />
@@ -356,7 +420,8 @@ export const Footer: React.FC = memo(function Footer() {
 
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-sm font-medium">
-            © {new Date().getFullYear()} Epaphras Ministries. Crafted with faith.
+            © {new Date().getFullYear()} Epaphras Ministries. Crafted with
+            faith.
           </p>
         </div>
       </div>
@@ -364,76 +429,75 @@ export const Footer: React.FC = memo(function Footer() {
   );
 });
 
-
 export const YouthRetreat = memo(function YouthRetreat() {
   const googleFormLink = "https://forms.gle/5zrt3denr5RBcQqHA";
 
   return (
-      <div className="relative bg-gradient-to-br from-[#2D3ED2] via-[#3DC4F0] to-[#9C8CF3] min-h-screen flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-        {/* Decorative Blurs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-72 h-72 bg-white opacity-10 rounded-full top-[-4rem] left-[-4rem] blur-3xl"></div>
-          <div className="absolute w-96 h-96 bg-white opacity-10 rounded-full bottom-[-6rem] right-[-6rem] blur-3xl"></div>
-        </div>
+    <div className="relative bg-gradient-to-br from-[#2D3ED2] via-[#3DC4F0] to-[#9C8CF3] min-h-screen flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+      {/* Decorative Blurs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-72 h-72 bg-white opacity-10 rounded-full top-[-4rem] left-[-4rem] blur-3xl"></div>
+        <div className="absolute w-96 h-96 bg-white opacity-10 rounded-full bottom-[-6rem] right-[-6rem] blur-3xl"></div>
+      </div>
 
-        {/* Main Content */}
-        <div className="relative z-10 bg-white/90 backdrop-blur-md p-10 sm:p-12 rounded-3xl shadow-2xl max-w-2xl w-full text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Epaphras Ministries
-          </h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#2D3ED2] mb-6">
-            Youth Retreat 2025
-          </h2>
+      {/* Main Content */}
+      <div className="relative z-10 bg-white/90 backdrop-blur-md p-10 sm:p-12 rounded-3xl shadow-2xl max-w-2xl w-full text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          Epaphras Ministries
+        </h1>
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#2D3ED2] mb-6">
+          Youth Retreat 2025
+        </h2>
 
-          <p className="text-gray-700 text-md sm:text-lg md:text-xl mb-4 leading-relaxed">
-            Join us for a powerful weekend of worship, growth, and unforgettable
-            memories.
-          </p>
+        <p className="text-gray-700 text-md sm:text-lg md:text-xl mb-4 leading-relaxed">
+          Join us for a powerful weekend of worship, growth, and unforgettable
+          memories.
+        </p>
 
-          {/* Tagline in English */}
-          <p className="text-gray-800 font-medium text-sm sm:text-base md:text-lg italic mb-2">
-            "Encounter God. Embrace Purpose. Ignite Your Faith."
-          </p>
+        {/* Tagline in English */}
+        <p className="text-gray-800 font-medium text-sm sm:text-base md:text-lg italic mb-2">
+          "Encounter God. Embrace Purpose. Ignite Your Faith."
+        </p>
 
-          {/* Tagline in Telugu */}
-          <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 leading-snug">
-            దేవుని ప్రేమను అనుభవించి, కొత్తగా జీవించండి!
-          </p>
+        {/* Tagline in Telugu */}
+        <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 leading-snug">
+          దేవుని ప్రేమను అనుభవించి, కొత్తగా జీవించండి!
+        </p>
 
-          {/* Event Info Boxes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            {/* Date Box */}
-            <div className="bg-[#EEF2FF] border border-[#CBD5E1] rounded-xl shadow-sm px-5 py-4 text-left">
-              <h3 className="text-[#2D3ED2] font-semibold text-lg mb-2">
-                📅 Dates
-              </h3>
-              <p className="text-gray-800 font-medium text-base">
-                September 23 – 25, 2025
-              </p>
-            </div>
-
-            {/* Venue Box */}
-            <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl shadow-sm px-5 py-4 text-left">
-              <h3 className="text-green-700 font-semibold text-lg mb-2">
-                📍 Venue
-              </h3>
-              <p className="text-gray-800 text-base leading-relaxed">
-                WORD AND DEED HIGH SCHOOL, Vijayawada Hwy, Samson Colony,
-                Hayathnagar_Khalsa, Hyderabad, Telangana 501505
-              </p>
-            </div>
+        {/* Event Info Boxes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          {/* Date Box */}
+          <div className="bg-[#EEF2FF] border border-[#CBD5E1] rounded-xl shadow-sm px-5 py-4 text-left">
+            <h3 className="text-[#2D3ED2] font-semibold text-lg mb-2">
+              📅 Dates
+            </h3>
+            <p className="text-gray-800 font-medium text-base">
+              September 23 – 25, 2025
+            </p>
           </div>
 
-          {/* Register Button */}
-          <a
-            href={googleFormLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#2D3ED2] text-white font-semibold text-md sm:text-lg py-3 px-8 rounded-full shadow-lg hover:bg-[#1f2aad] focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:scale-105"
-          >
-            Enroll Now
-          </a>
+          {/* Venue Box */}
+          <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl shadow-sm px-5 py-4 text-left">
+            <h3 className="text-green-700 font-semibold text-lg mb-2">
+              📍 Venue
+            </h3>
+            <p className="text-gray-800 text-base leading-relaxed">
+              WORD AND DEED HIGH SCHOOL, Vijayawada Hwy, Samson Colony,
+              Hayathnagar_Khalsa, Hyderabad, Telangana 501505
+            </p>
+          </div>
         </div>
+
+        {/* Register Button */}
+        <a
+          href={googleFormLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-[#2D3ED2] text-white font-semibold text-md sm:text-lg py-3 px-8 rounded-full shadow-lg hover:bg-[#1f2aad] focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:scale-105"
+        >
+          Enroll Now
+        </a>
       </div>
+    </div>
   );
 });

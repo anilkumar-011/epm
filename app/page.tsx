@@ -19,17 +19,29 @@ export default function Home() {
 // Optimized fade-in animation variants
 const fadeInLeft = {
   hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
 };
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
 };
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
 };
 
 // ---------------- About --------------
@@ -79,19 +91,19 @@ const EpaphraMinistries = memo(function EpaphraMinistries() {
                 </h3>
                 <div className="space-y-4 text-gray-700 leading-relaxed font-telugu text-lg">
                   <p>
-                    బ్రదర్ ఎపఫ్రా గారు 1998 లో ఇద్దరికి క్రీస్తు ప్రేమను బోధించుట
-                    ప్రారంభించి, దైవ చిత్తానుసారముగా 2004 లో ఎపఫ్రా మినిస్ట్రీస్
-                    ను స్థాపించారు.
+                    బ్రదర్ ఎపఫ్రా గారు 1998 లో ఇద్దరికి క్రీస్తు ప్రేమను
+                    బోధించుట ప్రారంభించి, దైవ చిత్తానుసారముగా 2004 లో ఎపఫ్రా
+                    మినిస్ట్రీస్ ను స్థాపించారు.
                   </p>
                   <p>
-                    హైదరాబాద్ పరిసర ప్రాంతాలలో నిర్వహిస్తున్న ఆరాధనలు, సువార్త సభల
-                    ద్వారా అన్యులు, నామకార్ధపు అనుభవములలో ఉన్నవారిని దేవుని
+                    హైదరాబాద్ పరిసర ప్రాంతాలలో నిర్వహిస్తున్న ఆరాధనలు, సువార్త
+                    సభల ద్వారా అన్యులు, నామకార్ధపు అనుభవములలో ఉన్నవారిని దేవుని
                     రాజ్యము కొరకు సిద్దపరుస్తున్నారు.
                   </p>
                   <p>
                     క్రీస్తు గురించి బోధించుట మాత్రమే కాదు గాని, బోధించిన దాని
-                    ప్రకారం జీవించడం ద్వారా అనేకులను క్రీస్తు వైపు ఆకర్షించవచ్చని
-                    నమ్ముతున్నాము.
+                    ప్రకారం జీవించడం ద్వారా అనేకులను క్రీస్తు వైపు
+                    ఆకర్షించవచ్చని నమ్ముతున్నాము.
                   </p>
                 </div>
               </div>
@@ -99,14 +111,14 @@ const EpaphraMinistries = memo(function EpaphraMinistries() {
               <div className="bg-primary/5 p-8 rounded-3xl border border-primary/5">
                 <div className="space-y-4 text-gray-600 leading-relaxed text-lg italic">
                   <p>
-                    &quot;Brother Epaphras began teaching the love of Christ to two
-                    individuals in 1998. According to God&apos;s will, in 2004, he
-                    established Epaphra Ministries.&quot;
+                    &quot;Brother Epaphras began teaching the love of Christ to
+                    two individuals in 1998. According to God&apos;s will, in
+                    2004, he established Epaphra Ministries.&quot;
                   </p>
                   <p>
-                    &quot;Our mission is not just to teach about Christ, but to live
-                    according to his teaching, believing that a life lived as an
-                    example can attract many toward Him.&quot;
+                    &quot;Our mission is not just to teach about Christ, but to
+                    live according to his teaching, believing that a life lived
+                    as an example can attract many toward Him.&quot;
                   </p>
                 </div>
               </div>
@@ -129,10 +141,10 @@ interface Magazine {
 const magazines: Magazine[] = [
   {
     name: "Devuni Sparsha",
-    month: "Mar Apr 2026",
-    image: "/magazine/mar_apr_2026.jpg",
+    month: "July Aug 2026",
+    image: "/magazine/sparsha_jul_aug_2026.jpg",
     download_url:
-      "https://drive.google.com/file/d/1zv8bHgj3B9oHNV3lPvohsmSR1hZmwUQb/view?usp=sharing",
+      "https://drive.google.com/file/d/1ypWiLqdQwmH8qpRko9ytNLF18iYder6E/view?usp=sharing",
   },
   {
     name: "Devuni Sparsha",
@@ -187,7 +199,11 @@ const MagazineDisplay = memo(function MagazineDisplay() {
                 viewport={{ once: true, margin: "-50px" }}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { delay: index * 0.1, duration: 0.4 } }
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: index * 0.1, duration: 0.4 },
+                  },
                 }}
                 className="group relative overflow-hidden rounded-3xl md:rounded-[2.5rem] bg-white border border-gray-100 shadow-premium flex flex-col sm:flex-row"
               >
@@ -251,30 +267,103 @@ interface Prayer {
 }
 
 const worshipPlaces: WorshipPlace[] = [
-  { id: 0, name: "Pedda Amberpet", image: "/home/worshipPlace/peddaamberpet.webp" },
+  {
+    id: 0,
+    name: "Pedda Amberpet",
+    image: "/home/worshipPlace/peddaamberpet.webp",
+  },
   { id: 1, name: "Bhagyalatha", image: "/home/worshipPlace/bhagyalatha.webp" },
   { id: 2, name: "Chinthal", image: "/home/worshipPlace/chinthal.webp" },
   { id: 3, name: "Anajpur", image: "/home/worshipPlace/anajpur.webp" },
 ];
 
 const prayers: Prayer[] = [
-  { id: 0, day: "Sunday", time: "9:30 AM", description: "పునరుత్థానపు ఆరాధన", place: 0 },
-  { id: 1, day: "Sunday", time: "8:00 AM", description: "పునరుత్థానపు ఆరాధన", place: 1 },
-  { id: 2, day: "Sunday", time: "10:00 AM", description: "పునరుత్థానపు ఆరాధన", place: 1 },
-  { id: 3, day: "Saturday", time: "7:00 PM", description: "శనివారం ఉపవాస ప్రార్ధన", place: 1 },
-  { id: 4, day: "1st Wednesday", time: "7:00 PM", description: "స్త్రీల కూడిక", place: 1 },
-  { id: 5, day: "2nd Wednesday", time: "7:00 PM", description: "Youth Meeting", place: 1 },
-  { id: 6, day: "Sunday", time: "10:00 AM", description: "పునరుత్థానపు ఆరాధన", place: 2 },
-  { id: 7, day: "Sunday", time: "7:00 PM", description: "పునరుత్థానపు ఆరాధన", place: 2 },
-  { id: 8, day: "Friday", time: "7:00 PM", description: "Friday Worship", place: 2 },
-  { id: 9, day: "Sunday", time: "10:00 AM", description: "పునరుత్థానపు ఆరాధన", place: 3 },
-  { id: 10, day: "Saturday", time: "7:00 PM", description: "శనివారం ఉపవాస ప్రార్ధన", place: 3 },
+  {
+    id: 0,
+    day: "Sunday",
+    time: "9:30 AM",
+    description: "పునరుత్థానపు ఆరాధన",
+    place: 0,
+  },
+  {
+    id: 1,
+    day: "Sunday",
+    time: "8:00 AM",
+    description: "పునరుత్థానపు ఆరాధన",
+    place: 1,
+  },
+  {
+    id: 2,
+    day: "Sunday",
+    time: "10:00 AM",
+    description: "పునరుత్థానపు ఆరాధన",
+    place: 1,
+  },
+  {
+    id: 3,
+    day: "Saturday",
+    time: "7:00 PM",
+    description: "శనివారం ఉపవాస ప్రార్ధన",
+    place: 1,
+  },
+  {
+    id: 4,
+    day: "1st Wednesday",
+    time: "7:00 PM",
+    description: "స్త్రీల కూడిక",
+    place: 1,
+  },
+  {
+    id: 5,
+    day: "2nd Wednesday",
+    time: "7:00 PM",
+    description: "Youth Meeting",
+    place: 1,
+  },
+  {
+    id: 6,
+    day: "Sunday",
+    time: "10:00 AM",
+    description: "పునరుత్థానపు ఆరాధన",
+    place: 2,
+  },
+  {
+    id: 7,
+    day: "Sunday",
+    time: "7:00 PM",
+    description: "పునరుత్థానపు ఆరాధన",
+    place: 2,
+  },
+  {
+    id: 8,
+    day: "Friday",
+    time: "7:00 PM",
+    description: "Friday Worship",
+    place: 2,
+  },
+  {
+    id: 9,
+    day: "Sunday",
+    time: "10:00 AM",
+    description: "పునరుత్థానపు ఆరాధన",
+    place: 3,
+  },
+  {
+    id: 10,
+    day: "Saturday",
+    time: "7:00 PM",
+    description: "శనివారం ఉపవాస ప్రార్ధన",
+    place: 3,
+  },
 ];
 
 const WorshipPlaces = memo(function WorshipPlaces() {
   const [selectedPlace, setSelectedPlace] = useState<WorshipPlace | null>(null);
-  
-  const openModal = useCallback((place: WorshipPlace) => setSelectedPlace(place), []);
+
+  const openModal = useCallback(
+    (place: WorshipPlace) => setSelectedPlace(place),
+    [],
+  );
   const closeModal = useCallback(() => setSelectedPlace(null), []);
 
   return (
@@ -309,7 +398,11 @@ const WorshipPlaces = memo(function WorshipPlaces() {
                 viewport={{ once: true, margin: "-30px" }}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { delay: index * 0.1, duration: 0.4 } }
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: index * 0.1, duration: 0.4 },
+                  },
                 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 onClick={() => openModal(place)}
@@ -373,7 +466,8 @@ const WorshipPlaces = memo(function WorshipPlaces() {
 
                 <div className="p-6 md:p-10 -mt-8 md:-mt-12 relative z-10 overflow-y-auto flex-1 custom-scrollbar">
                   <h4 className="text-2xl md:text-4xl font-black text-primary mb-6 md:mb-8 tracking-tighter leading-tight">
-                    Prayer House: <br className="sm:hidden" /> {selectedPlace.name}
+                    Prayer House: <br className="sm:hidden" />{" "}
+                    {selectedPlace.name}
                   </h4>
 
                   <div
@@ -403,7 +497,7 @@ const WorshipPlaces = memo(function WorshipPlaces() {
                             </p>
                           </div>
                         </div>
-                    ))}
+                      ))}
                   </div>
                   <button
                     onClick={closeModal}

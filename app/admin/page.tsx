@@ -8,7 +8,7 @@ import AboutUS from "./aboutus";
 
 export default function AdminPage() {
   const [component, setComponent] = useState<React.ReactNode>(<Home />);
-  
+
   useEffect(() => {
     if (!getCookie("is_super_user")) {
       redirect("/login");

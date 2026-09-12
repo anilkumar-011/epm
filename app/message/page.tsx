@@ -42,7 +42,8 @@ const FALLBACK_PLAYLISTS: Playlist[] = [
     description:
       "A collection of transformative messages shared at Epaphras Ministries.",
     youtubeUrl: `https://www.youtube.com/playlist?list=PLz79P3TW12AYMhcf1qvN2mF9NmQlYVk3p`,
-    thumbnailUrl: "https://i.ytimg.com/vi/Hb39PjYsdA0/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAZZzVJdNhwhJ5AFE8i_qJ7QCVSBw",
+    thumbnailUrl:
+      "https://i.ytimg.com/vi/Hb39PjYsdA0/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAZZzVJdNhwhJ5AFE8i_qJ7QCVSBw",
   },
   {
     id: "PLz79P3TW12AZU2JmOxKnveVXWJSV6m02T",
@@ -145,9 +146,7 @@ const MessagePage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Scripture Header */}
-        <div
-          className="flex flex-col items-center mb-16 animate-fade-in"
-        >
+        <div className="flex flex-col items-center mb-16 animate-fade-in">
           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
             <BookOpen className="text-primary" size={24} />
           </div>
@@ -160,9 +159,7 @@ const MessagePage: React.FC = () => {
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent mt-8" />
         </div>
 
-        <div
-          className="text-center mb-20 animate-fade-in"
-        >
+        <div className="text-center mb-20 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-primary mb-6">
             Digital <span className="text-secondary">Sanctuary</span>
           </h1>
@@ -189,7 +186,10 @@ const MessagePage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
+                    transition={{
+                      delay: Math.min(index * 0.05, 0.3),
+                      duration: 0.4,
+                    }}
                     className="group relative flex flex-col bg-white rounded-[2.5rem] overflow-hidden shadow-premium border border-gray-100 hover:border-primary/20 transition-colors"
                   >
                     <div className="relative aspect-video overflow-hidden">
@@ -248,37 +248,37 @@ const MessagePage: React.FC = () => {
             transition={{ duration: 0.4 }}
             className="mt-24 p-12 bg-primary rounded-[3rem] text-center relative overflow-hidden shadow-premium group"
           >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-white/20 transition-colors duration-700" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-white/20 transition-colors duration-700" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
 
-          <div className="relative z-10">
-            <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 backdrop-blur-md border border-white/20">
-              <Youtube size={32} className="text-white" />
-            </div>
-            <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter mb-6">
-              Never Miss a Word
-            </h2>
-            <p className="text-white/70 text-lg md:text-xl font-light mb-10 max-w-xl mx-auto">
-              Subscribe to our YouTube channel to get notified whenever we post
-              new messages, series, or go live.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={`https://www.youtube.com/${CHANNEL_HANDLE}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-12 py-5 bg-white text-primary rounded-2xl font-black text-lg hover:bg-secondary hover:text-white transition-all shadow-xl"
-              >
-                Subscribe on YouTube
-              </a>
-              <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white/60 text-sm font-bold backdrop-blur-sm">
-                <Heart size={16} className="text-secondary" />
-                Join 10.5K+ Subscribers
+            <div className="relative z-10">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 backdrop-blur-md border border-white/20">
+                <Youtube size={32} className="text-white" />
+              </div>
+              <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter mb-6">
+                Never Miss a Word
+              </h2>
+              <p className="text-white/70 text-lg md:text-xl font-light mb-10 max-w-xl mx-auto">
+                Subscribe to our YouTube channel to get notified whenever we
+                post new messages, series, or go live.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={`https://www.youtube.com/${CHANNEL_HANDLE}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-12 py-5 bg-white text-primary rounded-2xl font-black text-lg hover:bg-secondary hover:text-white transition-all shadow-xl"
+                >
+                  Subscribe on YouTube
+                </a>
+                <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white/60 text-sm font-bold backdrop-blur-sm">
+                  <Heart size={16} className="text-secondary" />
+                  Join 10.5K+ Subscribers
+                </div>
               </div>
             </div>
-          </div>
-        </m.div>
-      </LazyMotion>
+          </m.div>
+        </LazyMotion>
       </div>
     </main>
   );

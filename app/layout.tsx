@@ -32,7 +32,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://epaphrasministries.org"),
   openGraph: {
     title: "Epaphras Ministries | A Life of Example",
-    description: "Dedicated to serving communities and sharing the transformative power of faith since 1998.",
+    description:
+      "Dedicated to serving communities and sharing the transformative power of faith since 1998.",
     type: "website",
     locale: "en_US",
   },
@@ -52,7 +53,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={`${outfit.className} antialiased overflow-x-hidden`}>
         <Navbar />
